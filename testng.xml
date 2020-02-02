@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="ParallelTests">
+<suite name="Tests">
 
 
     <test name="Test1">
+        <classes>
+            <class name="TestGrid"/>
+        </classes>
+    </test>
+    <test name="Test2">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="Tests2"/>
         </classes>
     </test>
-
-    <test name="Test2">
-        <classes>
-            <class name="Tests"/>
-        </classes>
-    </test>
-
     <test name="Test3">
         <classes>
-            <class name="TestGrid"/>
+            <class name="Tests"/>
         </classes>
     </test>
 

@@ -9,10 +9,11 @@ First 4 tests use WebDriverManager that automatically downloads drivers (chrome 
 and tester can perform tests using it. Also, first 4 tests use Cross Browser testing. Test 1) and 2) both use BrowserFactory
 which allows testers elegant way to use driver(browser) that is needed by entering browser parameter.
 Test 3) uses Page Object Model for login, because this way we have "template" (Login.java) which we can use for testing
-login on multiple pages in future. First 3 tests use Explicit wait commands. Test 5 uses Selenium grid which helps testers run
+login on multiple pages in future. Test 5 uses Selenium grid which helps testers run
 tests on multiple machines and multiple browsers. Testers can run tests on multiple nodes which reduce total execution time.
 All tests use maven plugin surefire-report for reporting. Test 5 can't be run without Selenium Grid unless code is changed slightly :
 removing RemoteWebDriver and adding regular driver like ChromeDriver for example.
+Implicit wait is used in tests 1,2 and 4. Explicit wait is used in all 5 tests. Fluent wait is used in tests 1 and 2.
 
 Tests :
     class Tests.java :
