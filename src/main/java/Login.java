@@ -1,31 +1,24 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 public class Login {
 
-    WebDriver driver;
+    private static WebElement element = null;
 
-    public Login(WebDriver localDriver){
-        this.driver=localDriver;
+    public static WebElement UserName(WebDriver driver){
+        element = driver.findElement(By.xpath("/html/body/section[2]/div/div/div/section[2]/div/form/div[1]/input[1]"));
+        return element;
     }
-    @FindBy(how=How.NAME,using="EmailAddress")
-    @CacheLookup
-    WebElement email;
 
-    @FindBy(how=How.NAME,using="Password")
-    @CacheLookup
-    WebElement password;
+    public static WebElement Password(WebDriver driver){
+        element = driver.findElement(By.xpath("/html/body/section[2]/div/div/div/section[2]/div/form/div[1]/input[2]"));
+        return element;
+    }
 
-    @FindBy(how=How.XPATH,using="//*[@id=\"loginDetails\"]/div[3]/button")
-    @CacheLookup
-    WebElement submit;
+    public static WebElement LogIn(WebDriver driver){
+        element = driver.findElement(By.xpath("/html/body/section[2]/div/div/div/section[2]/div/form/div[3]/button"));
+        return element;
 
-public void login(String id,String pw){
-    email.sendKeys(id);
-    password.sendKeys(pw);
-    submit.click();
     }
 }

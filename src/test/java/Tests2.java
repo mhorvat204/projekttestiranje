@@ -43,13 +43,18 @@ public class Tests2 {
             WebDriverManager.iedriver().setup();
             driver = new InternetExplorerDriver();
         }
+
+        driver.get("https://f1store.formula1.com/stores/f1/en");
         driver.manage().window().maximize();
-        driver.get("https://f1store.formula1.com/stores/f1/en//Account/Login");
         WebDriverWait wait = new WebDriverWait(driver,30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/span")));
-        driver.findElement(By.xpath("/html/body/div[4]/div/span")).click();
-        Login loginPage = PageFactory.initElements(driver, Login.class);
-        loginPage.login(id,pw);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[8]/div/span")));
+        driver.findElement(By.xpath("/html/body/div[8]/div/span")).click();
+
+        HomePage.Account(driver).click();
+        Login.UserName(driver).sendKeys(id);
+        Login.Password(driver).sendKeys(pw);
+        Login.LogIn(driver).click();
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/nav/ul/li[1]/a/span")));
         driver.findElement(By.xpath("/html/body/nav/ul/li[1]/a/span")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[2]/section[1]/variable-promotional-grid/section/section/div[3]/div[1]/a/div[1]/span")));
